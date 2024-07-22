@@ -27,7 +27,7 @@
 
 // Posts
 article {
-  & > [data-content-id] {
+  & > div {
     @apply space-y-6;
 
     & > p:first-child,
