@@ -1,0 +1,100 @@
+@import url(https://fonts.bunny.net/css?family=raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Raleway", sans-serif;
+  }
+
+  pre, code {
+    font-family: "Space Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .font-raleway {
+    font-family: "Raleway", sans-serif;
+  }
+
+  .font-mono {
+    font-family: "Space Mono", monospace;
+  }
+}
+
+// Posts
+article {
+  & > [data-content-id] {
+    @apply space-y-6;
+
+    & > p:first-child,
+    & > h1 + p {
+      &:first-letter {
+        @apply bg-black text-white text-xl font-bold float-left block leading-none mr-2 mt-1 px-4 py-3 rounded-[5px];
+      }
+    }
+  }
+
+  p {
+    @apply leading-6;
+
+    a {
+      @apply underline font-semibold;
+    }
+  }
+
+  ul {
+    @apply list-disc list-outside ml-6 space-y-2;
+  }
+
+  h1 {
+    @apply text-5xl font-bold #{!important};
+  }
+
+  h2 {
+    @apply text-4xl font-bold mt-12 #{!important};
+  }
+
+  h3 {
+    @apply text-3xl font-bold mt-12 #{!important};
+  }
+
+  h4 {
+    @apply text-2xl font-bold mt-12 #{!important};
+  }
+
+  h5 {
+    @apply text-xl font-bold mt-12 #{!important};
+  }
+
+  h6 {
+    @apply text-lg font-bold mt-12 #{!important};
+  }
+
+  table {
+    @apply w-full text-sm text-left rtl:text-right text-gray-500 rounded-lg overflow-hidden shadow;
+
+    thead {
+      @apply text-xs text-gray-700 uppercase bg-gray-50;
+
+      tr {
+        th {
+          @apply px-6 py-3;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        @apply bg-white border-b;
+
+        td {
+          @apply px-6 py-4
+        }
+      }
+    }
+  }
+}
