@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 
 const route = useRoute();
 const path = route.path;
-console.log(path);
 
 const { data: page } = await useAsyncData("my-page", queryContent(path).findOne);
 const [prev, next] = await queryContent()

@@ -2,13 +2,7 @@
 import dayjs from "dayjs";
 
 useHead({
-  title: "Docify",
-  meta: [
-    {
-      name: "description",
-      content: "Trang chủ của blog"
-    }
-  ]
+  title: "Docify"
 });
 
 const { data } = await useAsyncData("articles", () => queryContent().sort({ date: -1 }).find());

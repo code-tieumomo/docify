@@ -2,23 +2,26 @@
 import dayjs from "dayjs";
 
 useHead({
-  title: "Bài viết"
+  title: "Thẻ"
 });
 
-const { data } = await useAsyncData("articles", () => queryContent().sort({ date: -1 }).find());
+const route = useRoute();
+const slug = route.params.slug;
+
+const { data } = await useAsyncData("articles", () => queryContent().where({ tags: { $contains: slug } }).sort({ date: -1 }).find());
 </script>
 
 <template>
   <section>
-    <h1 class="text-2xl font-bold">Bài viết</h1>
+    <h1 class="text-2xl font-bold">{{ slug }}</h1>
     <p class="mt-2 text-gray-600">
-      Danh sách các bài viết
+      Danh sách tất cả các bài viết thuộc thẻ <strong>"{{ slug }}"</strong>
     </p>
     <div class="mt-8 grid grid-cols-2 gap-4">
       <div v-for="article in data" class="flex gap-4">
-        <div class="rounded-lg overflow-hidden group w-1/3 shrink-0">
+        <div v-if="article.image" class="rounded-lg overflow-hidden group w-1/3 shrink-0">
           <img
-            :src="article.image || '/alt-thumb.png'"
+            :src="article.image"
             :alt="article.title"
             class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:rotate-2">
         </div>
@@ -35,9 +38,9 @@ const { data } = await useAsyncData("articles", () => queryContent().sort({ date
             <h2 class="text-xl font-bold">{{ article.title }}</h2>
           </NuxtLink>
           <div class="text-gray-600 text-xs mt-2 flex items-center gap-1">
-            <div class="border px-2 py-0.5 rounded-md border-gray-400">
+            <NuxtLink class="border px-2 py-0.5 rounded-md border-gray-400" :to="`/categories/${article.category}`">
               {{ article.category }}
-            </div>
+            </NuxtLink>
             / {{ dayjs(article.date).format("DD-MM-YYYY") }}
           </div>
           <p class="mt-2 text-sm line-clamp-3">{{ article.description }}</p>
