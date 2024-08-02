@@ -4,7 +4,7 @@
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="w-full bg-white border-b shadow">
+    <header class="w-full bg-white border-b shadow px-4">
       <div
         class="max-w-5xl mx-auto flex items-center justify-between gap-4 min-h-[81px]">
         <div class="flex items-center gap-2">
@@ -29,12 +29,12 @@
         </div>
       </div>
     </header>
-    <main class="bg-[#f4f5f9] grow">
+    <main class="bg-[#f4f5f9] grow px-4">
       <div class="max-w-5xl mx-auto my-8">
         <slot/>
       </div>
     </main>
-    <footer class="border-t">
+    <footer class="border-t px-4">
       <div class="max-w-5xl mx-auto">
         <div class="grid grid-cols-3 border-b py-8">
           <div class="border-r col-span-1 pr-8">

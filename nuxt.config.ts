@@ -18,7 +18,11 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      theme: "catppuccin-mocha"
+      theme: "catppuccin-mocha",
+      langs: [
+        "python",
+        "bash"
+      ]
     }
   }
 });

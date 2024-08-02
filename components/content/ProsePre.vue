@@ -50,12 +50,16 @@ const { copy, copied, text } = useClipboard();
         <Icon v-if="copied" name="ic:round-check" size="16"/>
       </div>
     </div>
-    <pre class="bg-gray-800 rounded-b-lg p-4 text-sm text-gray-300" :class="$props.class"><slot/></pre>
+    <pre class="bg-gray-800 rounded-b-lg p-4 text-sm text-gray-300 overflow-x-auto" :class="$props.class"><slot/></pre>
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 pre code .line {
-  display: block;
+  @apply block;
+}
+
+:deep(pre) {
+  @apply font-bold;
 }
 </style>

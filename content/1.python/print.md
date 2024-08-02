@@ -4,7 +4,7 @@ description: Cú pháp và cách sử dụng hàm print() trong Python
 author: quanph
 date: 2021-07-01
 author_avatar: https://i.pinimg.com/736x/0f/35/db/0f35db4bf56a044fd6818af581c45bc6.jpg
-image: https://cdn.analyticsvidhya.com/wp-content/uploads/2023/05/comments-python.jpg
+#image: https://cdn.analyticsvidhya.com/wp-content/uploads/2023/05/comments-python.jpg
 category: Thông báo
 tags:
   - thông báo
